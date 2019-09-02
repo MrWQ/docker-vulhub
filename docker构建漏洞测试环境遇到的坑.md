@@ -47,10 +47,10 @@ git clone https://github.com/vulhub/vulhub.git
 *# Entry vulnerability directory*  切换到要用到环境的目录
 cd /path/to/vuln/ 
 
-*# Compile (optional)* 	构建（下载镜像，这步容易因为网络出问题），这一步需要用root用户执行，如果不想用root，参考其他3
+*# Compile (optional)* 	构建，这一步需要用root用户执行，如果不想用root，参考其他3
 docker-compose build 
 
-*# Run* 	启动
+*# Run* 	启动（下载镜像，这步容易因为网络出问题）
 docker-compose up -d   
 ```
 
@@ -94,3 +94,11 @@ docker-compose up -d --force-recreate
    ```
      sudo usermod -aG docker your-user
    ```
+
+4. 关机后重新构建和启动的话需要启动docker
+
+   ```
+   service docker start
+   ```
+
+   
