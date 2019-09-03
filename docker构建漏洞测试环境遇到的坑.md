@@ -40,19 +40,17 @@ https://vulhub.org/#/docs/install-docker-compose/
 
 ###### 3.克隆项目
 
-```
   *# Download the latest version of the vulhub* 
 git clone https://github.com/vulhub/vulhub.git  
 
 *# Entry vulnerability directory*  切换到要用到环境的目录
 cd /path/to/vuln/ 
 
-*# Compile (optional)* 	构建，这一步需要用root用户执行，如果不想用root，参考其他3
+*# Compile (optional)* 	构建，这一步需要用root用户执行，如果不想用root，参考[其他3](#其他：)
 docker-compose build 
 
 *# Run* 	启动（下载镜像，这步容易因为网络出问题）
 docker-compose up -d   
-```
 
 
 
@@ -80,7 +78,7 @@ docker-compose build --no-cache
 build完了就启动即可
 
 ```
-docker-compose up
+docker-compose up -d
 ```
 
 2. 当docker-compose up -d后，如果修改了yml文件，譬如将某个service的port更改后，想要重新创建docker container，那么可以通过下面的命令
@@ -101,4 +99,8 @@ docker-compose up -d --force-recreate
    service docker start
    ```
 
+   还可以设置docker开机自启动：
    
+   ```
+   systemctl enable docker
+   ```
